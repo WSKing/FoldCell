@@ -29,6 +29,7 @@
     [self.view addSubview:self.tableView];
 }
 
+#pragma mark --tableView delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     MineModel *model = self.dataList[indexPath.row];
     if ([self.selectedIndexs containsObject:indexPath]) {
@@ -55,10 +56,8 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-}
-
+#pragma mark --foldDelegate
+//处理点击事件
 - (void)foldCellContent:(NSIndexPath *)indexPath {
     if ([self.selectedIndexs containsObject:indexPath]) {
         [self.selectedIndexs removeObject:indexPath];
